@@ -3,14 +3,29 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'postgres',
   port: parseInt(process.env.DB_PORT || '5432'),
-  ssl: { rejectUnauthorized: false }
+  ssl: 'require',
+  connectionTimeoutMillis: 10000,
+  statement_timeout: 30000,
+  application_name: 'blend-and-bond-api'
 });
+
+// Log connection errors
+pool.on('error', (err) => {
+  console.error('🚨 Unexpected error on idle client', err);
+});
+
+console.log(`📦 Connecting to PostgreSQL at ${process.env.DB_HOST}:${process.env.DB_PORT}`);
 
 // Convert MySQL `?` placeholders to Postgres `$1, $2`
 function convertQueryToPg(sql) {
