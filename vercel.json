@@ -4,11 +4,11 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://blend-and-bond-api.onrender.com/api/:path*"
+      "destination": "https://blend-and-bond-system.onrender.com/api/:path*"
     },
     {
       "source": "/uploads/:path*",
-      "destination": "https://blend-and-bond-api.onrender.com/uploads/:path*"
+      "destination": "https://blend-and-bond-system.onrender.com/uploads/:path*"
     },
     {
       "source": "/:path*",
