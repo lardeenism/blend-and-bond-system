@@ -244,8 +244,8 @@
   display: none;
 }
 
-/* Mobile */
-@media (max-width: 900px) {
+/* Mobile & Tablet */
+@media (max-width: 1024px) {
   .navbar-links {
     position: fixed;
     top: 0;
