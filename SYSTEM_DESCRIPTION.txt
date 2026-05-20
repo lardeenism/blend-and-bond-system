@@ -1,0 +1,802 @@
+================================================================================
+                    BLEND & BOND CAFE - SYSTEM DESCRIPTION
+================================================================================
+
+Project Name: Blend & Bond Cafe
+System Type: Order Management & E-Commerce Platform
+Tagline: "Where Every Cup Creates a Bond"
+Version: 1.0
+
+================================================================================
+                              ABOUT THE CAFE
+================================================================================
+
+CAFE NAME: Blend & Bond Cafe
+Description: A premium cafe experience offering handcrafted beverages, artisan 
+pastries, and warm moments. Experience the perfect blend of taste and togetherness.
+
+Operating Hours: 
+  - Opening Time: 08:00 AM (8:00)
+  - Closing Time: 21:00 (9:00 PM)
+  - Open Daily
+
+Location: Calunasan, Calape, Bohol, Philippines
+Currency: Philippine Peso (₱)
+Delivery Fee: ₱50.00
+
+================================================================================
+                            THE JOURNEY
+================================================================================
+
+Year Founded: 2025
+
+Vision:
+  Brew connections, one cup at a time. Blend & Bond Café was born from a passion 
+  for exceptional coffee and a belief that the best conversations happen over a 
+  warm cup. A space where flavors blend and hearts bond.
+
+Mission:
+  Every cup we serve is a chance to blend flavors and bond hearts.
+
+Milestones:
+
+  2025 - THE DREAM BEGINS
+  Gerald & Desiree unite their vision to create a café that blends flavors and 
+  bonds hearts in Calape, Bohol. With a deep love for coffee culture and 
+  entrepreneurship, Gerald envisioned a café that goes beyond serving drinks — 
+  a space where bonds are formed and communities thrive.
+
+  2025 - DOORS OPEN
+  Blend & Bond Café officially opens in Calunasan, Calape, Bohol, welcoming the 
+  local community with handcrafted beverages and warm smiles. Desiree brings 
+  creativity and warmth to every aspect, curating the perfect menu and designing 
+  a cozy atmosphere where every customer feels right at home.
+
+  2026 - GROWING TOGETHER
+  Expanding the menu with artisan pastries and seasonal drinks. Adding delivery 
+  service to reach more customers beyond the physical location. The artisan pastry 
+  collection is inspired by Desiree's passion for baking.
+
+  2026 - GOING DIGITAL
+  Launching our online ordering system to provide a seamless café experience from 
+  anywhere. Customers can now browse the full menu, place orders for dine-in, 
+  take-out, or delivery, and track their orders in real-time.
+
+Core Values:
+
+  1. QUALITY FIRST
+     We source only the finest ingredients and brew each cup with precision 
+     and care. Every product is carefully selected for excellence.
+
+  2. MADE WITH LOVE
+     Every item on our menu is crafted with passion and served with genuine 
+     warmth. Our team takes pride in creating memorable experiences.
+
+  3. COMMUNITY BOND
+     We believe cafés are where friendships begin and communities grow stronger. 
+     Blend & Bond is more than a business—it's a gathering place for the community.
+
+  4. EXCELLENCE
+     We strive for excellence in everything — from our beverages to customer 
+     service to the overall customer experience.
+
+================================================================================
+                                 OWNERSHIP
+================================================================================
+
+Cafe Owners (Co-Founders):
+  1. Gerald Y. Tesorio
+     Title: Co-Founder & CEO
+     Background: Passionate about coffee culture and entrepreneurship. His 
+     leadership drives the café's commitment to quality and innovation. His 
+     vision creates a space where bonds are formed and communities thrive.
+     Social: Facebook & Instagram
+
+  2. Desiree D. Alombro
+     Title: Co-Founder & Creative Director
+     Background: Brings creativity and warmth to every aspect of Blend & Bond. 
+     From curating the perfect menu to designing the cozy atmosphere, her 
+     attention to detail ensures every customer feels right at home. Her passion 
+     for baking inspires the café's artisan pastry collection.
+     Social: Facebook & Instagram
+
+Admin User:
+  - Username: jireh
+  - Password: faith
+  - Full Name: Jireh Admin
+  - Role: Administrator
+  - Status: Active
+
+Staff User:
+  - Username: jai
+  - Password: 212121
+  - Full Name: Jai Staff
+  - Role: Staff Member
+  - Status: Active
+
+================================================================================
+                            SYSTEM USERS & ROLES
+================================================================================
+
+USER ROLES:
+  1. Admin (Administrator)
+     - Full system access
+     - Manage products, categories, staff, orders, reports
+     - View analytics and system settings
+     - Manage system notifications
+
+  2. Staff (Staff Member)
+     - View orders and order status
+     - Update order preparation status
+     - Process customer service requests
+     - View staff dashboard
+
+  3. Customer (Default User)
+     - Browse menu and products
+     - Place orders (dine-in, take-out, delivery)
+     - Track orders
+     - Leave product reviews
+     - View order history
+
+================================================================================
+                             PRODUCT CATEGORIES
+================================================================================
+
+CATEGORY 1: COFFEE (☕ Coffee)
+  Status: Active
+  Display Order: 1
+  Icons: coffee
+  Featured for best-seller and premium items
+
+CATEGORY 2: NON COFFEE (🥤 Non-Coffee Beverages)
+  Status: Active
+  Display Order: 2
+  Icons: cup-soda
+  Includes teas, juices, and specialty drinks
+
+CATEGORY 3: MEALS (🍴 Meals)
+  Status: Active
+  Display Order: 3
+  Icons: utensils
+  Main dishes and light meals
+
+CATEGORY 4: DESSERTS (🍰 Desserts)
+  Status: Active
+  Display Order: 4
+  Icons: cake
+  Sweet treats and specialty desserts
+
+CATEGORY 5: PASTRIES (🥐 Pastries)
+  Status: Active
+  Display Order: 5
+  Icons: croissant
+  Baked goods and pastry items
+
+CATEGORY 6: COOKIES (🍪 Cookies)
+  Status: Active
+  Display Order: 6
+  Icons: cookie
+  Assorted cookies and biscuits
+
+================================================================================
+                             PRODUCTS & PRICING
+================================================================================
+
+[COFFEE SECTION] - Best Sellers & Featured
+
+1. ESPRESSO
+   Price: ₱89.00 (Base)
+   Sizes: Small (₱89), Medium (₱109), Large (₱129)
+   Description: Rich and bold single shot espresso with golden crema
+   Status: Available | Featured | Best Seller | Stock: 10
+   Size Options: Small (250ml), Medium (350ml), Large (500ml)
+
+2. CAPPUCCINO
+   Price: ₱129.00 (Base)
+   Sizes: Small (₱129), Medium (₱149), Large (₱169)
+   Description: Classic Italian cappuccino with velvety steamed milk foam
+   Status: Available | Featured | Best Seller | Stock: 10
+
+3. CAFFE AMERICANO
+   Price: ₱109.00 (Base)
+   Sizes: Small (₱109), Medium (₱129), Large (₱149)
+   Description: Smooth espresso diluted with hot water
+   Status: Available | Featured | Stock: 10
+
+4. CARAMEL ICED COFFEE
+   Price: ₱139.00 (Base)
+   Sizes: Small (₱139), Medium (₱159), Large (₱179)
+   Description: Chilled coffee with sweet caramel drizzle
+   Status: Available | Best Seller | Stock: 10
+
+5. FLAT WHITE
+   Price: ₱139.00 (Base)
+   Sizes: Small (₱139), Medium (₱159), Large (₱179)
+   Description: Velvety micro-foam milk over a double shot
+   Status: Available | Stock: 10
+
+6. MOCHA
+   Price: ₱149.00 (Base)
+   Sizes: Small (₱149), Medium (₱169), Large (₱189)
+   Description: Rich espresso blended with chocolate and steamed milk
+   Status: Available | Featured | Best Seller | Stock: 10
+
+7. ICED AMERICANO
+   Price: ₱119.00 (Base)
+   Sizes: Small (₱119), Medium (₱139), Large (₱159)
+   Description: Bold espresso over ice, refreshingly smooth
+   Status: Available | Stock: 10
+
+8. TIRAMISU ICED LATTE
+   Price: ₱159.00 (Base)
+   Sizes: Small (₱159), Medium (₱179), Large (₱199)
+   Description: Creamy latte infused with tiramisu flavors
+   Status: Available | Featured | Stock: 10
+
+9. CARAMEL BISCOFF ICED LATTE
+   Price: ₱169.00 (Base)
+   Sizes: Small (₱169), Medium (₱189), Large (₱209)
+   Description: Biscoff cookie butter with caramel espresso
+   Status: Available | Featured | Best Seller | Stock: 10
+
+10. CREAMY VANILLA LATTE
+    Price: ₱149.00 (Base)
+    Sizes: Small (₱149), Medium (₱169), Large (₱189)
+    Description: Smooth espresso with sweet vanilla cream
+    Status: Available | Featured | Stock: 10
+
+11. ICED CARAMEL MACCHIATO
+    Price: ₱159.00 (Base)
+    Sizes: Small (₱159), Medium (₱179), Large (₱199)
+    Description: Layered espresso with vanilla milk and caramel drizzle
+    Status: Available | Featured | Best Seller | Stock: 10
+
+---
+
+[NON-COFFEE SECTION]
+
+12. HOT CHOCOLATE
+    Price: ₱129.00 (Base)
+    Sizes: Small (₱129), Medium (₱149), Large (₱169)
+    Description: Luxurious Belgian hot chocolate with whipped cream
+    Status: Available | Stock: 10
+
+13. ICED MATCHA LATTE
+    Price: ₱149.00 (Base)
+    Sizes: Small (₱149), Medium (₱169), Large (₱189)
+    Description: Premium Japanese matcha whisked with cold milk
+    Status: Available | Featured | Best Seller | Stock: 10
+
+14. CHAI TEA
+    Price: ₱119.00 (Base)
+    Sizes: Small (₱119), Medium (₱139), Large (₱159)
+    Description: Aromatic spiced chai with warm steamed milk
+    Status: Available | Stock: 10
+
+15. FRESH FRUIT JUICE
+    Price: ₱109.00 (Base)
+    Sizes: Small (₱109), Medium (₱129), Large (₱149)
+    Description: Seasonal fresh-pressed fruit juice blend
+    Status: Available | Stock: 10
+
+16. MANGO SODA FLOAT
+    Price: ₱129.00 (Base)
+    Sizes: Small (₱129), Medium (₱149), Large (₱169)
+    Description: Sweet mango soda topped with vanilla ice cream
+    Status: Available | Best Seller | Stock: 10
+
+17. THAI ICED TEA
+    Price: ₱129.00 (Base)
+    Sizes: Small (₱129), Medium (₱149), Large (₱169)
+    Description: Creamy Thai tea served over ice with fragrant finish
+    Status: Available | Featured | Stock: 10
+
+---
+
+[MEALS SECTION]
+
+18. CLUB SANDWICH
+    Price: ₱179.00
+    Description: Triple-decker club sandwich with fries
+    Status: Available | Featured | Best Seller | Stock: 10
+
+19. SPAGHETTI AGLIO E OLIO
+    Price: ₱169.00
+    Description: Italian garlic and olive oil pasta
+    Status: Available | Stock: 10
+
+20. AVOCADO TOAST
+    Price: ₱159.00
+    Description: Sourdough with smashed avocado and poached egg
+    Status: Available | Featured | Stock: 10
+
+21. GARLIC BREAD
+    Price: ₱89.00
+    Description: Toasted garlic bread with herb butter and cheese
+    Status: Available | Best Seller | Stock: 10
+
+22. SMOKED SALMON SALAD
+    Price: ₱199.00
+    Description: Fresh smoked salmon with caper dressing
+    Status: Available | Stock: 10
+
+23. FRUIT SALAD
+    Price: ₱149.00
+    Description: Mixed tropical fruits with yogurt
+    Status: Available | Stock: 10
+
+24. FRENCH FRIES
+    Price: ₱99.00
+    Description: Golden crispy fries served hot and lightly salted
+    Status: Available | Best Seller | Stock: 10
+
+25. PANCAKES
+    Price: ₱129.00
+    Description: Fluffy pancakes with syrup and butter
+    Status: Available | Featured | Stock: 10
+
+---
+
+[DESSERTS SECTION] - Premium Selection
+
+26. CHOCOLATE CAKE
+    Price: ₱199.00
+    Description: Decadent triple-layer chocolate cake
+    Status: Available | Featured | Best Seller | Stock: 10
+
+27. CHEESECAKE
+    Price: ₱189.00
+    Description: Creamy New York-style cheesecake
+    Status: Available | Featured | Best Seller | Stock: 10
+
+28. RED VELVET CAKE
+    Price: ₱209.00
+    Description: Velvety red cake with cream cheese frosting
+    Status: Available | Featured | Stock: 10
+
+29. BLACK FOREST CAKE
+    Price: ₱219.00
+    Description: Classic Black Forest with cherries and cream
+    Status: Available | Best Seller | Stock: 10
+
+30. MANGO CAKE
+    Price: ₱199.00
+    Description: Light sponge cake with fresh mango layers
+    Status: Available | Stock: 10
+
+31. JAPANESE CAKE ROLL
+    Price: ₱169.00
+    Description: Fluffy Japanese-style cake roll
+    Status: Available | Featured | Stock: 10
+
+32. VANILLA CAKE
+    Price: ₱179.00
+    Description: Classic Madagascar vanilla bean cake
+    Status: Available | Stock: 10
+
+33. LECHE FLAN
+    Price: ₱129.00
+    Description: Traditional Filipino caramel custard
+    Status: Available | Best Seller | Stock: 10
+
+34. CHOCOLATE BROWNIES
+    Price: ₱99.00
+    Description: Fudgy chocolate brownies with walnuts
+    Status: Available | Best Seller | Stock: 10
+
+35. HALO HALO
+    Price: ₱139.00
+    Description: Classic Filipino shaved ice dessert
+    Status: Available | Stock: 10
+
+36. TIRAMISU
+    Price: ₱189.00
+    Description: Classic coffee-soaked dessert with mascarpone cream
+    Status: Available | Featured | Best Seller | Stock: 10
+
+---
+
+[PASTRIES SECTION] - Freshly Baked
+
+37. SPANISH BREAD
+    Price: ₱79.00
+    Description: Soft sweet bread with lightly glazed finish
+    Status: Available | Stock: 10
+
+38. BUTTER CROISSANT
+    Price: ₱79.00
+    Description: Freshly baked buttery croissants with crispy layers
+    Status: Available | Featured | Best Seller | Stock: 10
+
+39. WAFFLES
+    Price: ₱129.00
+    Description: Golden waffles served warm with syrup and butter
+    Status: Available | Featured | Stock: 10
+
+40. CHOCOLATE DONUTS
+    Price: ₱69.00
+    Description: Rich chocolate-glazed donuts
+    Status: Available | Stock: 10
+
+41. GLAZED DONUTS
+    Price: ₱59.00
+    Description: Classic sugar-glazed ring donuts
+    Status: Available | Best Seller | Stock: 10
+
+42. BAVARIAN DONUTS
+    Price: ₱79.00
+    Description: Cream-filled Bavarian donuts
+    Status: Available | Stock: 10
+
+43. SPRINKLE DONUTS
+    Price: ₱69.00
+    Description: Colorful sprinkle-topped donuts
+    Status: Available | Stock: 10
+
+44. STRAWBERRY DONUTS
+    Price: ₱79.00
+    Description: Fresh strawberry-glazed donuts
+    Status: Available | Stock: 10
+
+45. PANDESAL
+    Price: ₱29.00
+    Description: Warm Filipino bread rolls, soft and sweet
+    Status: Available | Best Seller | Stock: 10
+
+46. WHOLE WHEAT BREAD
+    Price: ₱89.00
+    Description: Hearty whole wheat artisan bread
+    Status: Available | Stock: 10
+
+47. BISCOTTI
+    Price: ₱89.00
+    Description: Crunchy Italian almond biscotti
+    Status: Available | Stock: 10
+
+48. OATMEAL ALMOND BISCOTTI
+    Price: ₱99.00
+    Description: Wholesome oatmeal biscotti with almonds
+    Status: Available | Stock: 10
+
+49. CHEESE BREAD
+    Price: ₱79.00
+    Description: Warm cheese-filled bread rolls
+    Status: Available | Stock: 10
+
+50. BANANA BREAD
+    Price: ₱169.00
+    Description: Soft banana bread with moist, sweet crumb
+    Status: Available | Featured | Stock: 10
+
+51. HAM AND CHEESE CROISSANT
+    Price: ₱149.00
+    Description: Buttery croissant filled with ham and melted cheese
+    Status: Available | Featured | Stock: 10
+
+---
+
+[COOKIES SECTION]
+
+52. CHOCOLATE CHIP COOKIES
+    Price: ₱69.00
+    Description: Classic chewy chocolate chip cookies
+    Status: Available | Stock: 10
+
+53. BUTTER COOKIES
+    Price: ₱79.00
+    Description: Danish-style butter cookies
+    Status: Available | Stock: 10
+
+54. SUGAR COOKIES
+    Price: ₱69.00
+    Description: Amish-style sugar cookies with vanilla glaze
+    Status: Available | Stock: 10
+
+55. BLUEBERRY WHITE CHOCOLATE COOKIES
+    Price: ₱89.00
+    Description: Soft cookies with blueberries
+    Status: Available | Stock: 10
+
+56. OATMEAL RAISIN COOKIES
+    Price: ₱69.00
+    Description: Chewy oatmeal cookies with raisins
+    Status: Available | Stock: 10
+
+57. MACADAMIA COOKIES
+    Price: ₱99.00
+    Description: White chocolate macadamia nut cookies
+    Status: Available | Stock: 10
+
+================================================================================
+                           SYSTEM FEATURES
+================================================================================
+
+ORDER MANAGEMENT:
+
+Order Types:
+  - Dine-in (Eat at the cafe)
+  - Take-out (Take away)
+  - Delivery (Delivery to address)
+
+Order Status Workflow:
+  1. Pending - Order received, awaiting confirmation
+  2. Confirmed - Order confirmed and sent to kitchen
+  3. Preparing - Kitchen preparing the order
+  4. Ready - Order ready for pickup/serving
+  5. Served - Order delivered to customer (dine-in)
+  6. Out for Delivery - On the way (delivery orders)
+  7. Delivered - Successfully delivered
+  8. Completed - Order completed
+  9. Cancelled - Order cancelled by customer or staff
+
+Payment Methods:
+  - Cash
+  - Cash on Delivery (COD)
+
+---
+
+USER AUTHENTICATION:
+  - Login system with username and password
+  - Password encryption (bcrypt hashing)
+  - JWT token-based authentication
+  - Session management with token storage
+  - Auto-logout on session expiry
+
+---
+
+REVIEW SYSTEM:
+  - Product ratings (1-5 stars)
+  - Product reviews with comments
+  - Overall order reviews
+  - Rating metrics tracking
+  - Customer feedback management
+
+---
+
+DASHBOARD & ANALYTICS:
+  - Order statistics and reports
+  - Product performance metrics
+  - Revenue tracking
+  - Staff performance monitoring
+  - Customer order history
+
+---
+
+NOTIFICATIONS:
+  - Order placed notifications
+  - Order status updates
+  - Order cancellation alerts
+  - Review notifications
+  - Staff addition alerts
+  - System alerts
+
+---
+
+STAFF MANAGEMENT:
+  - Add new staff members
+  - Manage staff roles and permissions
+  - Staff performance tracking
+  - Staff dashboard access
+
+---
+
+SETTINGS & CONFIGURATION:
+  - Cafe name and branding
+  - Operating hours
+  - Delivery fee configuration
+  - Currency settings
+  - Default theme selection
+  - Order number prefix
+  - Notification settings
+
+================================================================================
+                        TECHNOLOGY STACK
+================================================================================
+
+FRONTEND:
+  - Framework: React 19.2.4
+  - Language: TypeScript
+  - Build Tool: Vite
+  - Routing: React Router 7.15.1
+  - UI Components: Lucide React Icons
+  - Styling: CSS3 with CSS Variables
+  - Animation: Framer Motion
+  - State Management: Zustand
+  - HTTP Client: Axios
+  - Toast Notifications: React Hot Toast
+  - Charts: Recharts
+
+BACKEND:
+  - Runtime: Node.js
+  - Framework: Express 5.2.1
+  - Database: PostgreSQL
+  - Database Client: pg (node-postgres)
+  - Authentication: JWT (jsonwebtoken)
+  - Password Hashing: bcryptjs
+  - File Upload: Multer
+  - CORS: cors
+  - Cookie Handling: cookie-parser
+  - Environment: dotenv
+
+DEPLOYMENT:
+  - Frontend: Vercel (Global CDN)
+  - Backend: Render (Node.js Service)
+  - Database: Supabase (PostgreSQL)
+  - Version Control: GitHub
+
+================================================================================
+                        DATABASE STRUCTURE
+================================================================================
+
+CORE TABLES:
+
+1. USERS
+   - id (Primary Key)
+   - username (Unique)
+   - password (Hashed)
+   - full_name
+   - email
+   - phone
+   - role (admin, staff, customer)
+   - avatar
+   - is_active
+   - last_login
+   - Timestamps: created_at, updated_at
+
+2. CATEGORIES
+   - id (Primary Key)
+   - name (Unique)
+   - slug (Unique)
+   - icon
+   - display_order
+   - is_active
+   - created_at
+
+3. PRODUCTS
+   - id (Primary Key)
+   - name
+   - description
+   - base_price
+   - category_id (Foreign Key)
+   - image_filename
+   - stock
+   - has_sizes (for beverages with size options)
+   - is_available
+   - is_featured
+   - is_best_seller
+   - avg_rating
+   - total_reviews
+   - Timestamps: created_at, updated_at
+
+4. PRODUCT_SIZES
+   - id (Primary Key)
+   - product_id (Foreign Key)
+   - size_label (Small, Medium, Large)
+   - volume_ml
+   - price
+
+5. ORDERS
+   - id (Primary Key)
+   - order_number (Unique)
+   - customer_name
+   - phone
+   - email
+   - order_type (dine-in, take-out, delivery)
+   - order_status (workflow statuses)
+   - total_price
+   - delivery_fee
+   - special_instructions
+   - Timestamps: created_at, updated_at
+
+6. ORDER_ITEMS
+   - id (Primary Key)
+   - order_id (Foreign Key)
+   - product_id (Foreign Key)
+   - quantity
+   - price
+   - size (if applicable)
+
+7. REVIEWS & RATINGS
+   - Product reviews with ratings
+   - Overall order reviews
+   - Metrics tracking
+
+8. SETTINGS
+   - System configuration key-value pairs
+   - Types: string, number, boolean, json
+
+9. NOTIFICATIONS
+   - Notification logs
+   - Types: order events, system alerts
+   - User notification tracking
+
+================================================================================
+                        SECURITY FEATURES
+================================================================================
+
+- Password Encryption: bcryptjs (Bcrypt)
+- Authentication: JWT Tokens
+- CORS Protection: Cross-origin request validation
+- SSL/TLS: Connection pooler with SSL encryption
+- Input Validation: Server-side validation
+- Authorization: Role-based access control
+- Session Management: Token-based sessions
+- Database Security: Connection pooling with Supabase
+- Environment Variables: Sensitive data in .env files
+
+================================================================================
+                          DEPLOYMENT INFO
+================================================================================
+
+Frontend Deployment:
+  - Platform: Vercel
+  - URL: https://blend-and-bond-system.vercel.app
+  - Environment: Production
+
+Backend Deployment:
+  - Platform: Render
+  - Service: Web Service (Node.js)
+  - URL: https://blend-and-bond-system.onrender.com
+  - Database Connection: Supabase Connection Pooler
+
+Database Deployment:
+  - Platform: Supabase
+  - Database: PostgreSQL
+  - Region: Southeast Asia (Singapore)
+  - Connection: aws-1-ap-southeast-1.pooler.supabase.com:6543
+
+================================================================================
+                        SYSTEM STATISTICS
+================================================================================
+
+Total Products: 57
+  - Coffee: 11 items
+  - Non-Coffee: 6 items
+  - Meals: 8 items
+  - Desserts: 11 items
+  - Pastries: 15 items
+  - Cookies: 6 items
+
+Featured Products: 20+
+Best Sellers: 20+
+Total Menu Items: 50+
+
+Price Range:
+  - Lowest: ₱29.00 (Pandesal)
+  - Highest: ₱219.00 (Black Forest Cake)
+  - Average: ₱119.00
+
+Stock per Item: 10 units (default)
+Total Cafe Capacity: 500+ units in stock
+
+================================================================================
+                        CONTACT & SUPPORT
+================================================================================
+
+System Administrator: Jireh Admin
+Staff Manager: Jai Staff
+Support Hours: 08:00 AM - 09:00 PM Daily
+
+For Issues:
+  - Contact admin dashboard
+  - Use staff dashboard for order management
+  - Check notifications for system updates
+
+================================================================================
+                           VERSION INFO
+================================================================================
+
+System Version: 1.0
+Cafe Founded: 2025
+System Launched: 2026
+Last Updated: May 21, 2026
+Database Version: PostgreSQL (Supabase)
+Node.js Version: 24.14.1
+React Version: 19.2.4
+Frontend Build Tool: Vite
+Testing Status: Production Ready
+Current Phase: Growing Together - Online Ordering & Delivery Expansion
+
+================================================================================
+                        END OF SYSTEM DESCRIPTION
+================================================================================
