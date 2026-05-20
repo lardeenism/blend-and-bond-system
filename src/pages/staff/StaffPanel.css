@@ -1,0 +1,24 @@
+/* Staff-specific styles extending AdminPanel.css */
+.staff-order-card { padding: 20px; margin-bottom: 0; }
+.staff-order-card:hover { transform: none; }
+
+.staff-order-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.staff-order-left { display: flex; align-items: center; gap: 10px; }
+
+.staff-order-meta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; }
+
+.staff-order-address { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px; }
+
+.staff-order-items { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+.staff-item-row { display: flex; align-items: center; gap: 10px; padding: 4px 0; }
+.staff-item-img { width: 36px; height: 36px; border-radius: var(--radius-sm); object-fit: cover; }
+.staff-item-info { flex: 1; font-size: 0.85rem; color: var(--text-primary); }
+.staff-item-qty { font-size: 0.82rem; color: var(--text-muted); }
+.staff-item-price { font-weight: 600; color: var(--primary); font-size: 0.85rem; }
+
+.staff-order-notes {
+  display: flex; align-items: flex-start; gap: 6px; font-size: 0.82rem; color: var(--text-muted);
+  font-style: italic; padding: 8px 12px; background: var(--bg-secondary); border-radius: var(--radius-sm); margin: 8px 0;
+}
+
+.staff-order-action { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-light); display: flex; justify-content: flex-end; }
