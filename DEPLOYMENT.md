@@ -65,8 +65,9 @@ By using Vercel **Rewrites**, we route all client `/api` and `/uploads` requests
 3. **Configure Settings**:
    - **Name**: `blend-and-bond-api`
    - **Environment/Runtime**: `Node`
-   - **Build Command**: `npm install` *(Vite build is not needed here)*
+   - **Build Command**: `npm install`
    - **Start Command**: `npm start`
+   - **Note**: The backend only serves API routes and uploads. The frontend is deployed separately on Vercel.
 4. **Configure Environment Variables**:
    - Go to the **Environment** tab and add:
      - `DB_HOST`: *Your Supabase Database Host*

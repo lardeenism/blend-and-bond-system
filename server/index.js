@@ -115,13 +115,10 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Blend & Bond Cafe API running' });
 });
 
-// Serve static files from dist
-const distPath = path.join(process.cwd(), 'dist');
-app.use(express.static(distPath));
-
-// Catch-all SPA fallback route (must come last)
-app.get(/^(.*)$/, (req, res) => {
-  res.sendFile(path.join(distPath, 'index.html'));
+// Frontend is served by Vercel, not by this backend
+// 404 for any undefined routes
+app.use((req, res) => {
+  res.status(404).json({ error: 'Not Found' });
 });
 
 await ensureProductStockColumn();
