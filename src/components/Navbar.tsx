@@ -68,7 +68,9 @@ export default function Navbar() {
             <ShoppingCart size={18} />
             {getItemCount() > 0 && <span className="cart-badge">{getItemCount()}</span>}
           </Link>
-          {isAuthenticated && (
+          {!isAuthenticated ? (
+            <Link to="/login" className="btn btn-primary btn-sm nav-login-btn">Login</Link>
+          ) : (
             <div className="nav-user-menu">
               <button className="nav-action-btn user-btn"><User size={18} /></button>
               <div className="user-dropdown">
