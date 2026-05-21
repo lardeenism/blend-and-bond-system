@@ -14,6 +14,7 @@ export default function AdminProducts() {
   const [categories, setCategories] = useState<any[]>(cachedCategories);
   const [loading, setLoading] = useState(cachedProducts.length === 0);
   const [search, setSearch] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('');
   const [editing, setEditing] = useState<any>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState('');
@@ -136,9 +137,11 @@ export default function AdminProducts() {
 
 
 
-  const filtered = products.filter(p =>
-    !search || p.name.toLowerCase().includes(search.toLowerCase()) || p.category_name?.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = products.filter(p => {
+    const matchSearch = !search || p.name.toLowerCase().includes(search.toLowerCase()) || p.category_name?.toLowerCase().includes(search.toLowerCase());
+    const matchCategory = !categoryFilter || p.category_id === parseInt(categoryFilter);
+    return matchSearch && matchCategory;
+  });
 
   if (loading) return null;
 
@@ -229,10 +232,21 @@ export default function AdminProducts() {
         document.body
       )}
 
-      {/* Search */}
-      <div className="search-bar">
-        <Search size={16} className="search-icon" />
-        <input type="text" placeholder="Search products..." value={search} onChange={e => setSearch(e.target.value)} className="search-input" />
+      {/* Search and Filters */}
+      <div className="filters-bar" style={{ display: 'flex', gap: '16px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        <div className="search-bar" style={{ flex: 1, margin: 0, minWidth: '200px' }}>
+          <Search size={16} className="search-icon" />
+          <input type="text" placeholder="Search products..." value={search} onChange={e => setSearch(e.target.value)} className="search-input" />
+        </div>
+        <select 
+          className="form-select" 
+          style={{ width: 'auto', minWidth: '150px', margin: 0 }} 
+          value={categoryFilter} 
+          onChange={e => setCategoryFilter(e.target.value)}
+        >
+          <option value="">All Categories</option>
+          {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+        </select>
       </div>
 
       {/* Table */}
