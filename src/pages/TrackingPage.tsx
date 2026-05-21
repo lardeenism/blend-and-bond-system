@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Search, Package, Check, ChefHat, ShoppingBag, Truck, MapPin, PackageSearch } from 'lucide-react';
+import { Search, Package, ClipboardCheck, ChefHat, ShoppingBag, Truck, MapPin, Coffee, CheckCircle, PackageSearch } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { ProductReviewForm, OverallReviewForm } from '../components/ReviewComponents';
@@ -46,13 +46,13 @@ const statusSteps = {
 const getStatusIcon = (status: string) => {
   switch (status) {
     case 'pending': return <Package size={20} />;
-    case 'confirmed': return <Check size={20} />;
+    case 'confirmed': return <ClipboardCheck size={20} />;
     case 'preparing': return <ChefHat size={20} />;
     case 'ready': return <ShoppingBag size={20} />;
-    case 'served': return <Check size={20} />;
+    case 'served': return <Coffee size={20} />;
     case 'out_for_delivery': return <Truck size={20} />;
     case 'delivered': return <MapPin size={20} />;
-    case 'completed': return <Check size={20} />;
+    case 'completed': return <CheckCircle size={20} />;
     default: return <Package size={20} />;
   }
 };
