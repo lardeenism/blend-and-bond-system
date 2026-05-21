@@ -175,7 +175,6 @@
   height: 100%;
   object-fit: cover;
   transition: opacity 0.15s ease;
-  user-drag: none;
   -webkit-user-drag: none;
 }
 
@@ -415,7 +414,6 @@
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
-  user-drag: none;
   -webkit-user-drag: none;
 }
 
@@ -561,9 +559,16 @@
   width: 250px;
   height: 300px;
   object-fit: cover;
+  object-position: top center;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-xl);
   border: 4px solid var(--bg-primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.owner-img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
 }
 
 .owner-1 {
@@ -701,9 +706,37 @@
   }
 
   .about-images {
-    height: 300px;
-    max-width: 400px;
+    position: relative;
+    height: auto;
+    max-width: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .owner-img {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 200px;
+    height: 260px;
+  }
+
+  .owner-1 {
+    transform: rotate(-3deg);
+  }
+
+  .owner-2 {
+    transform: rotate(3deg);
+    margin-top: 20px;
+  }
+
+  .owner-img:hover {
+    transform: translateY(-4px) scale(1.02);
   }
 
   .about-text { text-align: center; }
@@ -737,9 +770,24 @@
     display: none;
   }
 
+  .about-images {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
   .owner-img {
-    width: 180px;
-    height: 220px;
+    width: 220px;
+    height: 270px;
+  }
+
+  .owner-1 {
+    transform: rotate(-2deg);
+  }
+
+  .owner-2 {
+    transform: rotate(2deg);
+    margin-top: 0;
   }
 
   .promo-carousel {
