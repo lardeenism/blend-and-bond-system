@@ -5,7 +5,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useCart } from '../context/CartContext';
 import { getProductImage } from '../utils/imageMap';
-import { formatCurrency, validatePhone, validateRequired, getMinDate, getMinSelectableDate, getWorkingHours, isWithinWorkingHours, getMinTime, isPastTimeSlot } from '../utils/helpers';
+import { formatCurrency, validatePhone, validateRequired, getMinSelectableDate, getWorkingHours, isWithinWorkingHours, getMinTime, isPastTimeSlot } from '../utils/helpers';
 import SearchableSelect from '../components/SearchableSelect';
 import './CheckoutPage.css';
 
