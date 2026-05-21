@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Package, ShoppingBag, Users, Star, BarChart3, Settings, Bell, LogOut, Coffee, Menu, X } from 'lucide-react';
 import axios from 'axios';
-import toast from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext';
 import AdminDashboard from './AdminDashboard';
 import AdminProducts from './AdminProducts';
@@ -27,8 +26,8 @@ export default function AdminLayout() {
     if (!isAdmin) { navigate('/login'); }
   }, [isAdmin]);
 
-  useEffect(() => { 
-    setSidebarOpen(false); 
+  useEffect(() => {
+    setSidebarOpen(false);
     if (location.pathname === '/admin/orders') {
       localStorage.setItem('admin_viewed_pending', pendingOrders.toString());
       setViewedPending(pendingOrders);
@@ -43,7 +42,7 @@ export default function AdminLayout() {
           setUnreadCount(res.data.unreadCount);
           setPendingOrders(res.data.pendingOrdersCount || 0);
         })
-        .catch(() => {});
+        .catch(() => { });
     };
     fetchNotifs();
     const interval = setInterval(fetchNotifs, 15000);

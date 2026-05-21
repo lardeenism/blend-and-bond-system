@@ -99,7 +99,7 @@ function StaffNotifications() {
     axios.get('/api/dashboard/notifications').then(r => {
       cachedStaffNotifications = r.data.notifications;
       setNotifications(r.data.notifications);
-    }).catch(() => {}).finally(() => setLoading(false));
+    }).catch(() => { }).finally(() => setLoading(false));
   };
   const markAllRead = async () => {
     await axios.put('/api/dashboard/notifications/read-all');
@@ -229,8 +229,8 @@ export default function StaffPanel() {
     if (!isStaff) { navigate('/login'); }
   }, [isStaff]);
 
-  useEffect(() => { 
-    setSidebarOpen(false); 
+  useEffect(() => {
+    setSidebarOpen(false);
     if (location.pathname === '/staff/orders') {
       localStorage.setItem('staff_viewed_pending', pendingOrders.toString());
       setViewedPending(pendingOrders);
@@ -243,7 +243,7 @@ export default function StaffPanel() {
       axios.get('/api/dashboard/notifications').then(r => {
         setUnreadCount(r.data.unreadCount);
         setPendingOrders(r.data.pendingOrdersCount || 0);
-      }).catch(() => {});
+      }).catch(() => { });
     };
     fetchNotifs();
     const interval = setInterval(fetchNotifs, 15000);
