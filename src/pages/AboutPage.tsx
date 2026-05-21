@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Coffee, Heart, Users, Award, MapPin, Clock, Sparkles } from 'lucide-react';
 import { getOwnerImage, getLogoImage } from '../utils/imageMap';
 import './AboutPage.css';
@@ -256,7 +257,7 @@ export default function AboutPage() {
               <p><Clock size={16} /> Open Daily: 8:00 AM — 9:00 PM</p>
             </div>
             <div className="location-cta">
-              <a href="/menu" className="btn btn-primary btn-lg">Order Now</a>
+              <Link to="/menu" className="btn btn-primary btn-lg">Order Now</Link>
             </div>
           </div>
         </div>
