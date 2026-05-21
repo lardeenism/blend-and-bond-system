@@ -5,7 +5,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useCart } from '../context/CartContext';
 import { getProductImage } from '../utils/imageMap';
-import { formatCurrency, validatePhone, validateRequired, getMinDate, getWorkingHours, isWithinWorkingHours, getMinTime, isPastTimeSlot } from '../utils/helpers';
+import { formatCurrency, validatePhone, validateRequired, getMinDate, getMinSelectableDate, getWorkingHours, isWithinWorkingHours, getMinTime, isPastTimeSlot } from '../utils/helpers';
 import SearchableSelect from '../components/SearchableSelect';
 import './CheckoutPage.css';
 
@@ -76,8 +76,44 @@ export default function CheckoutPage() {
   }, [form.municipality_code]);
 
   const updateForm = useCallback((field: string, value: string) => {
-    setForm(prev => ({ ...prev, [field]: value }));
-    setErrors(prev => ({ ...prev, [field]: '' }));
+    setForm(prev => {
+      const next = { ...prev, [field]: value };
+
+      // When date changes, clear time if it becomes invalid
+      if (field === 'scheduled_date' && prev.scheduled_time) {
+        if (value && isPastTimeSlot(value, prev.scheduled_time)) {
+          next.scheduled_time = '';
+          setErrors(e => ({ ...e, scheduled_time: '' }));
+        }
+      }
+
+      // Real-time validation for schedule fields
+      if (field === 'scheduled_time' && value && next.order_type === 'delivery') {
+        if (!isWithinWorkingHours(value)) {
+          setErrors(e => ({ ...e, scheduled_time: 'Time must be between 08:00 AM and 09:00 PM' }));
+          setTouched(t => ({ ...t, scheduled_time: true }));
+        } else if (next.scheduled_date && isPastTimeSlot(next.scheduled_date, value)) {
+          setErrors(e => ({ ...e, scheduled_time: 'Cannot select a past time' }));
+          setTouched(t => ({ ...t, scheduled_time: true }));
+        } else {
+          setErrors(e => ({ ...e, scheduled_time: '' }));
+        }
+      } else {
+        setErrors(e => ({ ...e, [field]: '' }));
+      }
+
+      // Real-time validation for date
+      if (field === 'scheduled_date' && value && next.order_type === 'delivery') {
+        if (value < getMinSelectableDate()) {
+          setErrors(e => ({ ...e, scheduled_date: 'Cannot select a past date' }));
+          setTouched(t => ({ ...t, scheduled_date: true }));
+        } else {
+          setErrors(e => ({ ...e, scheduled_date: '' }));
+        }
+      }
+
+      return next;
+    });
   }, []);
 
   const handleBlur = useCallback((field: string) => {
@@ -160,7 +196,12 @@ export default function CheckoutPage() {
   const isFormValid = useMemo(() => {
     if (!form.customer_name.trim() || !form.phone || form.phone.length !== 11) return false;
     if (!form.order_type) return false;
-    if (form.order_type === 'delivery' && (!form.municipality || !form.barangay || !form.scheduled_date || !form.scheduled_time)) return false;
+    if (form.order_type === 'delivery') {
+      if (!form.municipality || !form.barangay || !form.scheduled_date || !form.scheduled_time) return false;
+      if (!isWithinWorkingHours(form.scheduled_time)) return false;
+      if (isPastTimeSlot(form.scheduled_date, form.scheduled_time)) return false;
+      if (form.scheduled_date < getMinSelectableDate()) return false;
+    }
     return true;
   }, [form]);
 
@@ -371,7 +412,7 @@ export default function CheckoutPage() {
                         type="date" 
                         className={`form-input ${errors.scheduled_date ? 'input-error' : ''}`} 
                         value={form.scheduled_date} 
-                        min={getMinDate()} 
+                        min={getMinSelectableDate()} 
                         onChange={e => updateForm('scheduled_date', e.target.value)} 
                       />
                       {errors.scheduled_date && <span className="form-error"><AlertCircle size={12} /> {errors.scheduled_date}</span>}

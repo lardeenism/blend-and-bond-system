@@ -105,6 +105,25 @@ export function getMinDate(): string {
   return `${y}-${m}-${d}`;
 }
 
+export function getMinSelectableDate(): string {
+  const ph = getCurrentPhTime();
+  const { close } = getWorkingHours();
+  
+  const bufferTime = new Date(ph);
+  bufferTime.setMinutes(bufferTime.getMinutes() + 30);
+  const h = String(bufferTime.getHours()).padStart(2, '0');
+  const m = String(bufferTime.getMinutes()).padStart(2, '0');
+  
+  if (`${h}:${m}` > close) {
+    ph.setDate(ph.getDate() + 1);
+  }
+  
+  const y = ph.getFullYear();
+  const month = String(ph.getMonth() + 1).padStart(2, '0');
+  const d = String(ph.getDate()).padStart(2, '0');
+  return `${y}-${month}-${d}`;
+}
+
 export function getWorkingHours(): { open: string; close: string } {
   return { open: '08:00', close: '21:00' };
 }
