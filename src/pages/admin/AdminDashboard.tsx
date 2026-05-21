@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ShoppingBag, DollarSign, Clock, CheckCircle, Users, Package, TrendingUp, Activity } from 'lucide-react';
+import { ShoppingBag, DollarSign, Clock, CheckCircle, Package, TrendingUp, Activity } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import axios from 'axios';
 import toast from 'react-hot-toast';
