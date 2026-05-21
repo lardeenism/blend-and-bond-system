@@ -24,7 +24,7 @@ export default function AdminLayout() {
   const [viewedPending, setViewedPending] = useState(() => Number(localStorage.getItem('admin_viewed_pending') || 0));
 
   useEffect(() => {
-    if (!isAdmin) { navigate('/login'); toast.error('Admin access required'); }
+    if (!isAdmin) { navigate('/login'); }
   }, [isAdmin]);
 
   useEffect(() => { 

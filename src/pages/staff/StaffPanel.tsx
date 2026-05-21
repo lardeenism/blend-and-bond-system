@@ -226,7 +226,7 @@ export default function StaffPanel() {
   const [viewedPending, setViewedPending] = useState(() => Number(localStorage.getItem('staff_viewed_pending') || 0));
 
   useEffect(() => {
-    if (!isStaff) { navigate('/login'); toast.error('Staff access required'); }
+    if (!isStaff) { navigate('/login'); }
   }, [isStaff]);
 
   useEffect(() => { 
