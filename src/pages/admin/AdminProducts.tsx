@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Plus, Edit3, Search, Upload } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -152,7 +153,7 @@ export default function AdminProducts() {
       </div>
 
       {/* Product Form Modal */}
-      {editing !== null && (
+      {editing !== null && createPortal(
         <div className="modal-overlay" onClick={() => setEditing(null)}>
           <div className="modal-content glass-card" onClick={e => e.stopPropagation()}>
             <h3 className="modal-title">{editing.id ? 'Edit Product' : 'New Product'}</h3>
@@ -224,7 +225,8 @@ export default function AdminProducts() {
               <button onClick={handleSave} className="btn btn-primary">Save Product</button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* Search */}
