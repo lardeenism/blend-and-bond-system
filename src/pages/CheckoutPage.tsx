@@ -444,7 +444,15 @@ export default function CheckoutPage() {
             </div>
             <div className="form-group">
               <label className="form-label">Payment Method</label>
-              <div className="payment-option selected"><CreditCard size={18} /> <span>Cash on Delivery / Cash</span><Check size={16} /></div>
+              <div className="payment-option selected">
+                <CreditCard size={18} /> 
+                <span>
+                  {form.order_type === 'delivery' ? 'Cash on Delivery (COD)' : 
+                   form.order_type === 'dine-in' || form.order_type === 'take-out' ? 'Pay at Counter (Cash)' : 
+                   'Cash / Cash on Delivery'}
+                </span>
+                <Check size={16} />
+              </div>
             </div>
           </div>
         </div>
