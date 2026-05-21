@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
     let query = `
       SELECT p.*, c.name as category_name, c.icon as category_icon, c.slug as category_slug
       FROM products p JOIN categories c ON p.category_id = c.id
-      WHERE p.is_available = TRUE
+      WHERE 1=1
     `;
     const params = [];
     if (category) { query += ' AND c.slug = ?'; params.push(category); }

@@ -74,9 +74,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
       removeFromCart(id, size_label);
       return;
     }
-    setItems(prev => prev.map(i =>
-      i.id === id && i.size_label === size_label ? { ...i, quantity } : i
-    ));
+    setItems(prev => {
+      const existing = prev.find(i => i.id === id && i.size_label === size_label);
+      if (!existing) return prev;
+      const stockLimit = existing.stock_limit;
+      const reservedOtherSizes = prev.filter(item => item.id === id && item.size_label !== size_label).reduce((sum, item) => sum + item.quantity, 0);
+      const maxAllowed = stockLimit != null ? Math.max(0, stockLimit - reservedOtherSizes) : quantity;
+      const safeQuantity = Math.min(quantity, maxAllowed);
+
+      return prev.map(i =>
+        i.id === id && i.size_label === size_label ? { ...i, quantity: safeQuantity } : i
+      );
+    });
   };
 
   const clearCart = () => setItems([]);

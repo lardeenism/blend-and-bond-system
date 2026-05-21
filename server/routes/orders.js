@@ -28,8 +28,17 @@ router.post('/', async (req, res) => {
     if (!/^\d{11}$/.test(phone)) {
       return res.status(400).json({ error: 'Phone must be exactly 11 digits' });
     }
-    if (order_type === 'delivery' && (!province || !municipality || !barangay)) {
-      return res.status(400).json({ error: 'Delivery requires complete address' });
+    if (order_type === 'delivery') {
+      if (!province || !municipality || !barangay) {
+        return res.status(400).json({ error: 'Delivery requires complete address' });
+      }
+      if (!scheduled_date || !scheduled_time) {
+        return res.status(400).json({ error: 'Delivery requires a scheduled date and time' });
+      }
+      const timeStr = scheduled_time.substring(0, 5); // ensure HH:mm
+      if (timeStr < '08:00' || timeStr > '21:00') {
+        return res.status(400).json({ error: 'Delivery time must be within working hours (08:00 - 21:00)' });
+      }
     }
 
     let subtotal = 0;
@@ -133,7 +142,12 @@ router.get('/track/:orderNumber', async (req, res) => {
     const [orders] = await pool.query('SELECT * FROM orders WHERE order_number = ?', [req.params.orderNumber]);
     if (orders.length === 0) return res.status(404).json({ error: 'Order not found' });
     const order = orders[0];
-    const [items] = await pool.query('SELECT * FROM order_items WHERE order_id = ?', [order.id]);
+    const [items] = await pool.query(`
+      SELECT oi.*, p.stock as current_stock, p.is_available as current_available
+      FROM order_items oi
+      LEFT JOIN products p ON oi.product_id = p.id
+      WHERE oi.order_id = ?
+    `, [order.id]);
     const [tracking_logs] = await pool.query('SELECT * FROM order_tracking_logs WHERE order_id = ? ORDER BY created_at ASC', [order.id]);
     res.json({ order: { ...order, items, tracking_logs } });
   } catch (err) { res.status(500).json({ error: 'Server error' }); }
@@ -150,7 +164,12 @@ router.get('/', authenticateToken, requireRole('admin', 'staff'), async (req, re
     query += ' ORDER BY created_at DESC';
     const [orders] = await pool.query(query, params);
     for (const order of orders) {
-      const [items] = await pool.query('SELECT * FROM order_items WHERE order_id = ?', [order.id]);
+      const [items] = await pool.query(`
+        SELECT oi.*, p.stock as current_stock, p.is_available as current_available
+        FROM order_items oi
+        LEFT JOIN products p ON oi.product_id = p.id
+        WHERE oi.order_id = ?
+      `, [order.id]);
       order.items = items;
       const [tracking_logs] = await pool.query('SELECT * FROM order_tracking_logs WHERE order_id = ? ORDER BY created_at ASC', [order.id]);
       order.tracking_logs = tracking_logs;

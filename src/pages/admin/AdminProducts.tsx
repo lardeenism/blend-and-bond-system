@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, Edit3, Trash2, Search, Upload } from 'lucide-react';
+import { Plus, Edit3, Search, Upload } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { getProductImage } from '../../utils/imageMap';
@@ -133,14 +133,7 @@ export default function AdminProducts() {
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (!confirm('Delete this product?')) return;
-    try {
-      await axios.delete(`/api/products/${id}`);
-      toast.success('Product deleted');
-      fetchProducts();
-    } catch { toast.error('Failed to delete'); }
-  };
+
 
   const filtered = products.filter(p =>
     !search || p.name.toLowerCase().includes(search.toLowerCase()) || p.category_name?.toLowerCase().includes(search.toLowerCase())
@@ -270,7 +263,6 @@ export default function AdminProducts() {
                 <td><span className={`status-badge ${p.is_available ? 'status-completed' : 'status-cancelled'}`}>{p.is_available ? 'Active' : 'Inactive'}</span></td>
                 <td><div className="action-btns">
                   <button onClick={() => handleEdit(p)} className="icon-btn edit"><Edit3 size={14} /></button>
-                  <button onClick={() => handleDelete(p.id)} className="icon-btn delete"><Trash2 size={14} /></button>
                 </div></td>
               </tr>
             ))}

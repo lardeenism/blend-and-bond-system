@@ -188,6 +188,13 @@ function StaffOrderCard({ order, onUpdate }: { order: any; onUpdate: () => void 
             <div className="staff-item-info">
               <span>{item.product_name}</span>
               {item.size_label && <span className="size-tag">{item.size_label} {item.volume_ml ? `(${item.volume_ml}ml)` : ''}</span>}
+              <div style={{ fontSize: '11px', color: item.current_available === false || item.current_stock <= 0 ? 'var(--danger)' : 'var(--text-muted)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                {item.current_available === false || item.current_stock <= 0 ? (
+                  <><X size={10} /> Currently Unavailable</>
+                ) : (
+                  <><CheckCircle size={10} /> Current Stock: {item.current_stock ?? 'Unknown'}</>
+                )}
+              </div>
             </div>
             <span className="staff-item-qty">x{item.quantity}</span>
             <span className="staff-item-price">{formatCurrency(item.subtotal)}</span>

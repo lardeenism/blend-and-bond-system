@@ -136,11 +136,14 @@ export default function CheckoutPage() {
     if (form.order_type === 'delivery') {
       if (!form.municipality) errs.municipality = 'Municipality is required';
       if (!form.barangay) errs.barangay = 'Barangay is required';
-      if (form.scheduled_date && form.scheduled_time) {
+      if (!form.scheduled_date) errs.scheduled_date = 'Date is required for delivery';
+      if (!form.scheduled_time) {
+        errs.scheduled_time = 'Time is required for delivery';
+      } else {
         if (!isWithinWorkingHours(form.scheduled_time)) {
           errs.scheduled_time = 'Time must be within working hours (08:00 - 21:00)';
         }
-        if (isPastTimeSlot(form.scheduled_date, form.scheduled_time)) {
+        if (form.scheduled_date && isPastTimeSlot(form.scheduled_date, form.scheduled_time)) {
           errs.scheduled_time = 'Cannot select a past time';
         }
       }
@@ -157,7 +160,7 @@ export default function CheckoutPage() {
   const isFormValid = useMemo(() => {
     if (!form.customer_name.trim() || !form.phone || form.phone.length !== 11) return false;
     if (!form.order_type) return false;
-    if (form.order_type === 'delivery' && (!form.municipality || !form.barangay)) return false;
+    if (form.order_type === 'delivery' && (!form.municipality || !form.barangay || !form.scheduled_date || !form.scheduled_time)) return false;
     return true;
   }, [form]);
 
@@ -360,14 +363,21 @@ export default function CheckoutPage() {
                 </div>
 
                 <div className="schedule-section">
-                  <div className="schedule-header"><Clock size={16} /> Delivery Schedule (Optional)</div>
+                  <div className="schedule-header"><Clock size={16} /> Delivery Schedule *</div>
                   <div className="form-row">
                     <div className="form-group">
-                      <label className="form-label">Date</label>
-                      <input type="date" className="form-input" value={form.scheduled_date} min={getMinDate()} onChange={e => updateForm('scheduled_date', e.target.value)} />
+                      <label className="form-label">Date *</label>
+                      <input 
+                        type="date" 
+                        className={`form-input ${errors.scheduled_date ? 'input-error' : ''}`} 
+                        value={form.scheduled_date} 
+                        min={getMinDate()} 
+                        onChange={e => updateForm('scheduled_date', e.target.value)} 
+                      />
+                      {errors.scheduled_date && <span className="form-error"><AlertCircle size={12} /> {errors.scheduled_date}</span>}
                     </div>
                     <div className="form-group">
-                      <label className="form-label">Time ({open} - {close})</label>
+                      <label className="form-label">Time ({open} - {close}) *</label>
                       <input
                         type="time"
                         className={`form-input ${errors.scheduled_time ? 'input-error' : ''}`}
