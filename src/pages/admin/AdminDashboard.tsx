@@ -41,7 +41,7 @@ export default function AdminDashboard() {
         <StatCard icon={<Clock size={22} />} label="Pending Orders" value={stats.pendingOrders} color="warning" />
         <StatCard icon={<Activity size={22} />} label="Active Orders" value={stats.activeOrders} color="info" />
         <StatCard icon={<CheckCircle size={22} />} label="Completed" value={stats.completedOrders} color="success" />
-        <StatCard icon={<Users size={22} />} label="Customers" value={stats.totalCustomers} color="primary" />
+
         <StatCard icon={<Package size={22} />} label="Products" value={stats.totalProducts} color="accent" />
         <StatCard icon={<TrendingUp size={22} />} label="Today Revenue" value={formatCurrency(stats.todayRevenue)} color="success" />
       </div>
