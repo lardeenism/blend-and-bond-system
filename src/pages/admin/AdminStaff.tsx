@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { UserPlus, Edit3, Shield, ShieldOff, Activity } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -85,7 +86,7 @@ export default function AdminStaff() {
       </div>
 
       {/* Staff Form Modal */}
-      {editing !== null && (
+      {editing !== null && createPortal(
         <div className="modal-overlay" onClick={() => setEditing(null)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <h3 className="modal-title">{editing.id ? 'Edit Staff' : 'Add Staff'}</h3>
@@ -119,7 +120,8 @@ export default function AdminStaff() {
               <button onClick={handleSave} className="btn btn-primary">Save</button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {tab === 'staff' && (
