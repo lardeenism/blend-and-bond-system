@@ -87,7 +87,7 @@ export default function AdminStaff() {
       {/* Staff Form Modal */}
       {editing !== null && (
         <div className="modal-overlay" onClick={() => setEditing(null)}>
-          <div className="modal-content glass-card" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
             <h3 className="modal-title">{editing.id ? 'Edit Staff' : 'Add Staff'}</h3>
             <div className="modal-body">
               {!editing.id && (
